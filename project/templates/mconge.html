@@ -1,0 +1,146 @@
+{% extends './navmanager.html' %}
+{% block content %}
+<style>
+body {
+  
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+}
+.vertical-space {
+    margin-bottom: 280px;
+}
+.container1 {
+    
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Form and Headers */
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+</style>
+<div class="vertical-space"></div>
+<div class="container1">
+    <h2 class="form-title">Employee Leave Requests</h2>
+
+    <table>
+        <tr>
+            <th>ID Employe</th>
+            <th>Du</th>
+            <th>Au</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in c %}
+        <tr>
+            <td>{{i.emp_id}}</td>
+            <td>{{i.date_d}}</td>
+            <td>{{i.date_f}}</td>
+            <td>{{i.type}}</td>
+            <td>
+                <a class="btn" href="/approve/{{i.id}}">Approve</a>
+                <a class="btn" href="/decline/{{i.id}}">Decline</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="vertical-space"></div>
+    <div class="vertical-space"></div>
+    <a class="btn" href="/mconge2">Auto Resolve</a>
+
+    {% if x == 2 %}
+    <h2 class="form-title">Approved Leaves</h2>
+    <table>
+        <tr>
+            <th>ID de l'employe</th>
+            <th>Du</th>
+            <th>Au</th>
+            <th>Type</th>
+        </tr>
+        {% for i in e3 %}
+        {% if i.approved == "accepted" %}
+        <tr>
+            <td>{{i.emp_id}}</td>
+            <td>{{i.date_d}}</td>
+            <td>{{i.date_f}}</td>
+            <td>{{i.type}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+    <h2 class="form-title">Declined Leaves</h2>
+    <table>
+        <tr>
+            <th>ID de l'employe</th>
+            <th>Du</th>
+            <th>Au</th>
+            <th>Type</th>
+        </tr>
+        {% for i in e3 %}
+        {% if i.approved == "declined" %}
+        <tr>
+            <td>{{i.emp_id}}</td>
+            <td>{{i.date_d}}</td>
+            <td>{{i.date_f}}</td>
+            <td>{{i.type}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends './navemp.html' %}
+{% block content %}
+<style>
+    /* Center the table on the page */
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 80%; /* Adjust the width as needed */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+    }
+
+    /* Style the table header */
+    th {
+        background-color: #007bff; /* Blue background color */
+        color: #fff; /* White text color */
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Style the table rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray background color for even rows */
+    }
+
+    /* Style the table cells */
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    /* Style the message cell */
+    td.message {
+        font-weight: bold;
+    }
+    body {
+        background-color: #f8f8f8;
+        font-family: Arial, sans-serif;
+    }
+
+    .vertical-space {
+        margin-bottom: 380px;
+    }
+</style>
+<div class="vertical-space"></div>
+<div class="vertical-space"></div>
+<table>
+    <tr>
+        <th colspan="2">Message</th>
+    </tr>
+
+    <tr class="message">
+        <td colspan="2">Important Message</td>
+    </tr>
+
+    {% for i in m %}
+    <tr>
+        <td>{{i.text1}}</td>
+    </tr>
+    {% endfor %}
+
+    {% for i in mrh %}
+    <tr>
+        <td>{{i.text1}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="vertical-space"></div>
+{% endblock content %}

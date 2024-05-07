@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Floper</title>
+	<!-- favicon -->
+	<link rel="shortcut icon" href="images/icons/favicon.ico">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Code+Pro:300,400,600,700" rel="stylesheet">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="/static/static1/css/bootstrap.min.css">
+	<!-- animate.css -->
+	<link rel="stylesheet" href="/static/static1/css/animate.min.css">
+	<!-- slider and carousel -->
+	<link rel="stylesheet" href="/static/static1/css/owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/static1/css/owlcarousel/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/static/static1/css/slick.css">
+	<!-- popup -->
+	<link rel="stylesheet" href="/static/static1/css/magnific-popup.css">
+	<!-- icons set -->
+	<link rel="stylesheet" href="/static/static1/css/fontello.css">
+	<!-- custom main stylesheet -->
+	<link rel="stylesheet" href="/static/static1/css/styles.css">
+</head>
+<body>
+	<!-- Add Bootstrap CSS (You can use a CDN or download and host the CSS file) -->
+  
+<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+
+<!--	Logo and menu
+****************************-->
+	<header class="header">
+
+    <script>
+      window.addEventListener("scroll", function() {
+        var header = document.querySelector(".header");
+        if (window.scrollY > 0) {
+            header.classList.add("transparent-bg");
+        } else {
+            header.classList.remove("transparent-bg");
+        }
+    });
+    </script>
+		<div class="inner-header container">
+			<div class="header__logo">
+				<a1 href="http://www.thismanslife.co.uk" target="_blank">ECONOCOM</a>
+			</div>
+			
+			<button class="btn_nav"><i class="icon-menu"></i></button>
+
+			<nav class="navigation header__nav">
+				<ul class="nav__list">
+					<li class="nav__item current"><a href="#about" class="nav__link"><span class="nav__item_underline"></span>Home</a></li>
+					<li class="nav__item"><a href="/login" class="nav__link"><span class="nav__item_underline"></span>Login</a></li>
+					<li class="nav__item"><a href="/pemp" class="nav__link"><span class="nav__item_underline"></span>Donnees Personnelles</a></li>
+					<li class="nav__item"><a href="/message" class="nav__link"><span class="nav__item_underline"></span>Messages</a></li>
+					
+          <li class="nav__item dropdown">
+            <a href="#" class="nav__link"><span class="nav__item_underline"></span>Conges</a>
+            <ul class="dropdown-menu">
+                <li><a href="/dconge1"> demande conge</a></li>
+                <li><a href="/dconge">renseignement</a></li>
+               
+            </ul>
+        </li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+  <div class="slider section">
+    <!-- slider item -->
+      <div class="slider__item slider__item_1">
+        <div class="container">
+          <div class="slider__wrapper">
+            <span class="item__text"></span>
+            <h1 class="item__text item__text_big"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <style>
+  
+      @keyframes tipsy {
+        0 {
+          transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+        100% {
+          transform: translateX(-50%) translateY(-50%) rotate(360deg);
+        }
+      }
+      
+      body {
+        font-family: helvetica, arial, sans-serif;
+        background-color: #2e2e31;
+      }
+      
+      a1 {
+        color: #fffbf1;
+        
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        letter-spacing: -3px;
+        margin: 0;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      
+      a1:before,
+      a1:after {
+        content: '';
+        padding: .9em .5em;
+        position: absolute;
+        left: 50%;
+        width: 40%;
+        top: 50%;
+        display: flex;
+        border: 15px solid red;
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        animation: 10s infinite alternate ease-in-out tipsy;
+      }
+      
+      a1:before {
+        border-color: #00FA9A #00FA9A rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        z-index: -1;
+      }
+      
+      a1:after {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #00FA9A #00FA9A;
+        box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+      }   
+     
+.slider__item{
+  
+  width: 100%;
+  height: 10px;
+}
+
+/* Styles for the dropdown menu */
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+/* Other menu styles */
+.nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__item {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px; /* Adjust spacing between menu items */
+}
+
+/* Add other styles as needed */
+
+
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #white;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dropdown-menu li {
+  
+  text-align: center;
+}
+
+/* Style the dropdown trigger link */
+.nav__item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style the dropdown menu items */
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color on hover */
+.dropdown-menu li a:hover {
+  background-color: #00FA9A;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+.header{
+  position: fixed;
+  
+  
+    width: 100%;
+
+}
+
+
+
+.transparent-bg {
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha (4th value) to control transparency */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button{
+  text-decoration:none;
+  font-size:25px;
+  color:#3e1fad;
+  padding:20px 50px;
+  border:3px solid #3e1fad;
+  position:relative;
+  background-color: #00FA9A;
+}
+.button::before,
+.button::after{
+  content:" ";
+  position:absolute;
+  width:40px;
+  height:40px;
+  border:inherit;
+  transition:all .5s;
+}
+.button::before{
+  top:-15px;
+  left:-15px;
+  border-width:3px 0 0 3px;
+}
+.button::after{
+  bottom:-15px;
+  right:-15px;
+  border-width:0 3px 3px 0;
+}
+.button:hover::before,
+.button:hover::after{
+  width:calc(100% + 27px);
+  height:calc(100% + 27px);
+}
+</style>
+<script>
+  window.addEventListener("scroll", function() {
+    var header = document.querySelector(".header");
+    if (window.scrollY > 0) {
+        header.classList.add("expanded");
+    } else {
+        header.classList.remove("expanded");
+    }
+  });
+  </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% block content %}
+
+
+        {% endblock content %}
+        <section class="clients-and-contacts section">
+          <section id="clients" class="clients">
+            <div class="container">
+              <div class="clients__header row">
+                       <lu href="#" class="button">LEARN MORE</lu>
+      
+              <!-- clients controls -->
+                <div class="clients__controls col-xs-12 col-md-3">
+                  <div class="clients__arrow clients__arrow_back">
+      
+                    <div class="clients__arrow__line-short clients__arrow__line-up"></div>
+                    <div class="clients__arrow__line"></div>
+                    <div class="clients__arrow__line-short clients__arrow__line-down"></div>
+      
+                  </div>
+      
+              <!-- clients counter -->
+                  <div class="clients__counter">&nbsp;<span class="clients__counter__item clients__counter__item1">1&nbsp;</span> / <span class="clients__counter__item clients__counter__item2">&nbsp;4</span>&nbsp;</div>
+      
+                  <div class="clients__arrow clients__arrow_next">
+      
+                    <div class="clients__arrow__line-short clients__arrow__line-up"></div>
+                    <div class="clients__arrow__line"></div>
+                    <div class="clients__arrow__line-short clients__arrow__line-down"></div>
+      
+                  </div>
+                </div>
+              </div>
+      
+            <!-- clients carousel container -->
+              <div id="clients" class="clients__comment section">
+                <div class="owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="clients__comment__item">
+                      <div class="comment__customer col-xs-12 col-md-4">
+                        <h3>Amanda Lopez</h3>
+                        <h4 class="comment__customer__prefession">Google, Manager</h4>
+                      </div>
+      
+                      <blockquote class="comment__text col-xs-12 col-md-8">
+                        We are a creative team of designers. We make websites, interfaces and identity. We believe that beauty is hidden in small things.
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="clients__comment__item">
+                      <div class="comment__customer col-xs-12 col-md-4">
+                        <h3>Adam Sandler</h3>
+                        <h4 class="comment__customer__prefession">Warner Brothers, Director</h4>
+                      </div>
+      
+                      <blockquote class="comment__text col-xs-12 col-md-8">
+                        Nearly all of the most important genres of popular music in the last century have come from the USA. This is where African and European musical traditions came together, and it's this mixture of traditions that gave birth to popular music.
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="clients__comment__item">
+                      <div class="comment__customer col-xs-12 col-md-4">
+                        <h3>Monica Voxtel</h3>
+                        <h4 class="comment__customer__prefession">Mersedes, Test Driver</h4>
+                      </div>
+      
+                      <blockquote class="comment__text col-xs-12 col-md-8">
+                        When millions of Africans were transported to America as slaves in the 18th and 19th centuries, their melodies and rhythms went with them.
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      
+          <!--	Contact us
+        *********************************-->
+          <div class="map col-xs-12 col-sm-6"></div>
+        
+          <footer class="contact container">
+            <div class="row">
+              <div class="contact__inf col-xs-12 col-sm-6">
+                <h2 id="contact" class="section">Contact Us</h2>
+      
+                <p class="contact__text">
+                  Give us a call or send us an email at<br>
+                  <a class="contact__email" href="mailto:info@evatheme.com">info@evatheme.com</a>
+                </p>
+      
+                <address class="contact__address">
+                  USA, California, Montero Street 33/2<br>
+                  <a class="contact__tel" href="tel:+125998955988">+1 259 989 559 88</a>
+                </address>
+      
+            <!-- social networks -->
+                <div class="social">
+                  <div class="social__link-and-icon">
+                    <span class="icon icon-facebook"></span><a class="social__link" href="javascript:void">Facebook<span class="social__link_underline"></span></a>
+                    
+                  </div>
+                  <div class="social__link-and-icon">
+                    <span class="icon icon-twitter"></span><a class="social__link" href="javascript:void">Twitter<span class="social__link_underline"></span></a>
+                    
+                  </div>
+                  <div class="social__link-and-icon">
+                    <span class="icon icon-pinterest"></span><a class="social__link" href="javascript:void">Pinterest<span class="social__link_underline"></span></a>
+                    
+                  </div>
+                </div>
+      
+                <p class="copyright">© 2017 Floper Powered by Evatheme</p>
+              </div>
+            </div>
+          </footer>
+          
+          <!--	clients logos
+        *********************************-->
+          <section class="clients-logos container">
+            <div class="clients-logos__wrapper">
+              <img class="clients-logos__image" src="/static/static1/images/icons/newyork.png" alt="New York">
+              <img class="clients-logos__image" src="/static/static1/images/icons/brooks.png" alt="Brooks">
+              <img class="clients-logos__image" src="/static/static1/images/icons/smokers.png" alt="Smokers">
+            
+              <img class="clients-logos__image" src="/static/static1/images/icons/miller.png" alt="Miller">
+              <img class="clients-logos__image" src="/static/static1/images/icons/veela.png" alt="Veela">
+              <img class="clients-logos__image" src="/static/static1/images/icons/jumber.png" alt="Lumber">
+            </div>
+          </section>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+        <!-- google map -->
+        <script async defer src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjYhHbI6v_VpjiLZC0R4j5lHkTzMhuhys&callback=initMap">
+        </script>
+        <!-- castomisation if the map -->
+        <script src="/static/static1/js/map.js"></script>
+        <!-- jQuery -->
+        <script src="/static/static1/js/libs/jquery.min.js"></script>
+        <!-- carousel -->
+        <script src="/static/static1/js/libs/owl.carousel.min.js"></script>
+        <!-- slider -->
+        <script src="/static/static1/js/libs/slick.min.js"></script>
+        <!-- manipulation with text -->
+        <script src="/static/static1/js/libs/jquery.lettering-0.6.1.min.js"></script>
+        <script src="/static/static1/js/libs/jquery.textillate.js"></script>
+        <!-- gallery filter -->
+        <script src="/static/static1/js/libs/isotope.pkgd.min.js"></script>
+        <!-- popup -->
+        <script src="/static/static1/js/libs/jquery.magnific-popup.min.js"></script>
+        <!-- smooth scroll -->
+        <script src="/static/static1/js/libs/jquery.smooth-scroll.min.js"></script>
+        <!-- menu -->
+        <script src="/static/static1/js/menu.js"></script>
+        <!-- castom js script -->
+        <script src="/static/static1/js/main.js"></script>
+        <!-- vimeo player api -->
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <!-- vimeo player options -->
+        <script>
+          var iframe = document.querySelector('.slider__item_video');
+            var player = new Vimeo.Player(iframe);
+      
+            //When the player is ready, set the volume to 0
+            player.ready().then(function() {
+                player.setVolume(0);
+            });
+        </script>
+        <!-- load more function -->
+        <script src="/static/static1/js/load_more.js"></script>
+        <!-- load more settings -->
+        <script>
+              items_set = [
+                  {
+                   filter: 'design',
+                   backgroundImage: '/static/static1/images/photos/laptop.jpg',
+                   tagName: 'Design',
+                   headingHref: 'javascript:void',
+                   heading: 'Laptop and keyboard',
+                   headingSmall: 'Awesome typing',
+                   img: '/static/static1/images/magnificpopup/redstrip.jpg',
+                   title: 'Just simple block'
+                 },
+                 {
+                  filter: 'identy',
+                   backgroundImage: '/static/static1/images/photos/cookie.jpg',
+                   tagName: 'Identy',
+                   headingHref: 'javascript:void',
+                   heading: 'Cookie and Coffee',
+                   headingSmall: 'Take a break',
+                   img: '/static/static1/images/magnificpopup/cookie.jpg',
+                   title: 'Coffee Web Site'
+                 },
+                 {
+                   filter: 'web',
+                   backgroundImage: '/static/static1/images/photos/essentials.jpg',
+                   tagName: 'Web Design',
+                   headingHref: 'javascript:void',
+                   heading: 'Magazines',
+                   headingSmall: 'Nice reading',
+                   img: '/static/static1/images/magnificpopup/essentials.jpg',
+                   title: 'Coffee Web Site'
+                 },
+                 {
+                  filter: 'identy',
+                   backgroundImage: '/static/static1/images/photos/softs.jpg',
+                   tagName: 'Identy',
+                   headingHref: 'javascript:void',
+                   heading: 'Sheets of paper',
+                   headingSmall: 'Getting correct information',
+                   img: '/static/static1/images/magnificpopup/softs.jpg',
+                   title: 'Coffee Web Site'
+                 },
+              ];
+      
+              $('.gallery__items').portfolio_addon({
+                  load_count : 2,
+                  items : items_set
+              });
+          </script>
+      </body>
+      </html>

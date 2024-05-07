@@ -1,0 +1,161 @@
+{% extends './navemp.html' %}
+{% block content %}
+<!--<body>
+    {% if e.points > 10 %}
+choisir demande :
+<form method="post">
+<select name="type1" >choisir demande :
+    <option value="maladie">maladie</option>
+    <option value="vacances">vacances</option>
+    <option value="formation">formation</option>
+</select>
+du <input type="date" name="dated1">
+au <input type="date" name="datef1">
+<input type="submit">
+</form>
+{% else %}
+vous n'avez pas assez de Points
+{% endif %}
+{% if x == 1 %}
+demande envoye 
+{% endif %}
+  <h1>Monthly Calendars</h1> -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Job Holidays</title>
+  
+      <!-- Include Bootstrap CSS -->
+      
+      <!-- Custom CSS -->
+      <style>
+          /* Body and container styles */
+          body {
+              background-color: #f8f8f8;
+              font-family: Arial, sans-serif;
+          }
+  
+          .container1 {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+              text-align: center;
+              max-width: 600px;
+              margin: 0 auto;
+              margin-top: 20px;
+          }
+          .vertical-space {
+            margin-bottom: 150px;
+        }
+          /* Heading styles */
+          h1 {
+              color: #333;
+              margin-bottom: 20px;
+          }
+  
+          /* Form styles */
+          form {
+              text-align: left;
+          }
+  
+          .form-group label {
+              font-weight: bold;
+          }
+  
+          select.form-control,
+          input.form-control {
+              margin-bottom: 15px;
+          }
+  
+          /* Button style */
+          .btn-primary {
+              background-color: #007bff;
+              border: none;
+          }
+  
+          .btn-primary:hover {
+              background-color: #0056b3;
+          }
+  
+          /* Alert styles */
+          .alert {
+              margin-top: 20px;
+              padding: 10px;
+              border-radius: 5px;
+          }
+  
+          .alert-success {
+              background-color: #d4edda;
+              border-color: #c3e6cb;
+              color: #155724;
+          }
+  
+          .alert-danger {
+              background-color: #f8d7da;
+              border-color: #f5c6cb;
+              color: #721c24;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="vertical-space"></div>
+      <div class="container1">
+          <h1>demande de conge</h1>
+  
+          
+  
+          {% if e.points > 21 %}
+          <div class="alert alert-success">
+              vous etes eligible pour demander un conge
+              <form method="post">
+                  <div class="form-group">
+                      <label for="type1">choisir type de conge</label>
+                      <select class="form-control" name="type1" id="type1">
+                          <option value="maladie">Sick Leave</option>
+                          <option value="vacances">Vacation</option>
+                          <option value="formation">Training</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="dated1">Du:</label>
+                      <input type="date" class="form-control" name="dated1" id="dated1">
+                  </div>
+                  <div class="form-group">
+                      <label for="datef1">Au:</label>
+                      <input type="date" class="form-control" name="datef1" id="datef1">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit Request</button>
+                  {% if x == 1 and p == 0 %}
+                  <div id="success-message" style="display: none; color: green;">Demande envoyée avec succès!</div>
+                  {% endif %}
+              </form>
+          </div>
+          {% else %}
+          <div class="alert alert-danger">
+              You are not eligible to request time off.
+          </div>
+          {% endif %}
+          {% if p == 1 %}
+          <div class="alert alert-danger">
+            vous avez demande un jour interdit.
+            {% endif %}
+        </div>
+      </div>
+  
+      <!-- Include Bootstrap JS and jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>
+  <script>
+    // Assuming you have a form submission or an action that triggers the success message
+    // For example, after form submission
+    // You can use JavaScript to show the success message
+    document.getElementById('success-message').style.display = 'block';
+</script>
+<div class="vertical-space"></div>
+  {% endblock content %}

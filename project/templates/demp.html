@@ -1,0 +1,90 @@
+{% extends './navemp.html' %}
+{% block content %}
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+.vertical-space {
+    margin-bottom: 180px;
+}
+
+/* Additional CSS styles and effects */
+body {
+    margin: 20px;
+    background-color: #f1f1f1;
+}
+form {
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+.btn:hover {
+    background-color: #45a049;
+}
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+</style>
+<div class="vertical-space"></div>
+<table>
+    
+    <tr>
+    <td>id</td>
+    <td>{{u.id}}</td>
+</tr>
+    <tr>
+    <td>nom</td>
+    <td>{{u.nom}}</td>
+</tr>
+    <tr>
+    <td>prenom</td>
+    <td>{{u.prenom}}</td>
+</tr>
+    <tr>
+    <td>groupe</td>
+    <td>{{u.id_g}}</td>
+</tr>
+    <tr>
+    <td>points</td>
+    <td>{{u.points}}</td>
+</tr>
+    <tr>
+    <td>age</td>
+    <td>{{u.age}}</td>
+        
+</tr>
+
+</table>
+<div class="vertical-space"></div>
+{% endblock content %}

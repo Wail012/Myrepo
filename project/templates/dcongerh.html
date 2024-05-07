@@ -1,0 +1,1175 @@
+{% extends './navrh.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .calendar-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .calendar {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .month {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 10px;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  
+
+  td.current-day {
+    background-color: #e0e0e0;
+  }
+
+  td.event-day {
+    background-color: #aaf2b0;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.vertical-space {
+  margin-bottom: 280px;
+}
+</style>
+</head>
+<div class="vertical-space"></div>
+
+<form method="post">
+   
+  choisir groupe
+
+  <select class="form-control" name="id1" id="id1">
+    {% for i in g %}
+    <option value="{{i.id}}">{{i.id}}</option>
+    {% endfor %}
+</select>
+<button type="submit" class="btn btn-primary">Submit Request</button>
+</form>
+<div class="vertical-space"></div>
+{% if x == 1 %}
+
+<body>
+  <script>
+    var e7 = {{ e7 | tojson | safe }};
+    var c1 = {{ c1 | tojson | safe }};
+    const t = [];
+    let m=0;
+    
+    for (let i of c1 ) {
+
+      for (let j of c1 ) {
+        if(j.emp_id == i.id)
+        {
+        t[m]=i.id;
+        m++;
+        break;
+        }
+      }
+    }
+
+
+
+
+
+
+  </script>
+<h1>Monthly Calendars</h1>
+<div class="vertical-space"></div>
+<div class="calendar-container">
+  <!-- January Calendar -->
+  <div class="calendar">
+    <div class="month">January</div>
+    <table>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <!-- Add calendar cells here for January -->
+      <tr>
+
+       
+        <script>
+          // Access the data passed from FastAPI
+          
+          let p=0;
+           s=0;
+           let r=0;
+           let k=0;
+          // Your JavaScript code to visualize the data
+          for (let i = 1; i < 32; i++) {
+            p=0;
+            s=0;
+            
+            for (let j of c1 ) {
+              if(parseInt(j.day) === i && parseInt(j.month) === 1)
+              {
+                p=1;
+                s++;
+                r = parseInt(j.emp_id);
+              }
+            }
+              if(p === 0)
+              {
+            document.write("<td>");
+            document.write(i);
+            document.write("</td>");
+              }
+              else if(s === 1)
+              {
+                for ( k = 0; k < m+1; k++) {
+                  if( parseInt(t[k]) === parseInt(r) )
+                  {
+                  break;
+                  }
+                }
+                if(k === 0)
+                {
+                document.write('<td bgcolor="green" >');
+                }
+                else if(k === 1)
+                {
+                document.write('<td bgcolor="yellow" >');
+                }
+                else if(k === 2)
+                {
+                document.write('<td bgcolor="blue" >');
+                }
+                
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+              else 
+              {
+                document.write('<td bgcolor="red" >');
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+             if (i % 7 == 0){
+
+              document.write("<tr>");
+                document.write("</tr>");
+             }
+          }
+         
+          </script>
+        
+       
+        
+      </tr><tr>
+        
+        
+        <!-- Days of the month -->
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Repeat the above calendar structure for other months -->
+  
+  <!-- February Calendar -->
+  <div class="calendar">
+    <div class="month">February</div>
+    <table>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <!-- Add calendar cells here for February -->
+      <td></td><td></td><td></td>
+        <!-- Days of the month -->
+        <script>
+          // Access the data passed from FastAPI
+          
+          // Your JavaScript code to visualize the data
+          for (let i = 1; i < 29; i++) {
+            p=0;
+            s=0;
+            for (let j of c1 ) {
+              if(parseInt(j.day) === i && parseInt(j.month) === 2)
+              {
+                p=1;
+                s++;
+                r = parseInt(j.emp_id);
+              }
+            }
+              if(p === 0)
+              {
+            document.write("<td>");
+            document.write(i);
+            document.write("</td>");
+            
+              }
+              else if(s === 1)
+              {
+                for ( k = 0; k < m+1; k++) {
+                  if( parseInt(t[k]) === parseInt(r) )
+                  {
+                  break;
+                  }
+                }
+                if(k === 0)
+                {
+                document.write('<td bgcolor="green" >');
+                }
+                if(k === 1)
+                {
+                document.write('<td bgcolor="yellow" >');
+                }
+                if(k === 2)
+                {
+                document.write('<td bgcolor="blue" >');
+                }
+                
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+              else 
+              {
+                document.write('<td bgcolor="red" >');
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+             if (i == 4 || i == 11 || i ==18 || i ==25 ){
+
+              document.write("<tr>");
+                document.write("</tr>");
+             }
+          }
+         
+          </script>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Repeat the above calendar structure for other months -->
+  
+  <!-- Continue adding calendar structures for other months -->
+  <div class="calendar">
+      <div class="month">March</div>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <!-- Add calendar cells here for February -->
+        <td></td><td></td><td></td>
+          <!-- Days of the month -->
+          <script>
+            // Access the data passed from FastAPI
+            
+            // Your JavaScript code to visualize the data
+            for (let i = 1; i < 32; i++) {
+              p=0;
+              s=0;
+              for (let j of c1 ) {
+                if(parseInt(j.day) === i && parseInt(j.month) === 3)
+                {
+                  p=1;
+                  s++;
+                  r = parseInt(j.emp_id);
+                }
+              }
+                if(p === 0)
+                {
+              document.write("<td>");
+              document.write(i);
+              document.write("</td>");
+              
+                }
+                else if(s === 1)
+                {
+                  for ( k = 0; k < m+1; k++) {
+                    if( parseInt(t[k]) === parseInt(r) )
+                    {
+                    break;
+                    }
+                  }
+                  if(k === 0)
+                  {
+                  document.write('<td bgcolor="green" >');
+                  }
+                  if(k === 1)
+                  {
+                  document.write('<td bgcolor="yellow" >');
+                  }
+                  if(k === 2)
+                  {
+                  document.write('<td bgcolor="blue" >');
+                  }
+                  
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+                else 
+                {
+                  document.write('<td bgcolor="red" >');
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+               if (i == 4 || i == 11 || i ==18 || i ==25 ){
+
+                document.write("<tr>");
+                  document.write("</tr>");
+               }
+            }
+           
+            </script>
+        </tr>
+      </table>
+    </div>
+    <div class="calendar">
+      <div class="month">April</div>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <!-- Add calendar cells here for February -->
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+          <!-- Days of the month -->
+          <script>
+            // Access the data passed from FastAPI
+            
+            // Your JavaScript code to visualize the data
+            for (let i = 1; i < 31; i++) {
+              p=0;
+              s=0;
+              for (let j of c1 ) {
+                if(parseInt(j.day) === i && parseInt(j.month) === 4)
+                {
+                  p=1;
+                  s++;
+                  r = parseInt(j.emp_id);
+                }
+              }
+                if(p === 0)
+                {
+              document.write("<td>");
+              document.write(i);
+              document.write("</td>");
+              
+                }
+                else if(s === 1)
+                {
+                  for ( k = 0; k < m+1; k++) {
+                    if( parseInt(t[k]) === parseInt(r) )
+                    {
+                    break;
+                    }
+                  }
+                  if(k === 0)
+                  {
+                  document.write('<td bgcolor="green" >');
+                  }
+                  if(k === 1)
+                  {
+                  document.write('<td bgcolor="yellow" >');
+                  }
+                  if(k === 2)
+                  {
+                  document.write('<td bgcolor="blue" >');
+                  }
+                  
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+                else 
+                {
+                  document.write('<td bgcolor="red" >');
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+               if (i == 1 || i == 8 || i == 15 || i == 22 || i == 29 ){
+
+                document.write("<tr>");
+                  document.write("</tr>");
+               }
+            }
+           
+            </script>
+        </tr>
+      </table>
+    </div>
+    <div class="calendar">
+      <div class="month">May</div>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <!-- Add calendar cells here for February -->
+        
+          <!-- Days of the month -->
+        </tr>
+        <td></td>
+        <script>
+          // Access the data passed from FastAPI
+          
+          // Your JavaScript code to visualize the data
+          for (let i = 1; i < 32; i++) {
+            p=0;
+            s=0;
+            for (let j of c1 ) {
+              if(parseInt(j.day) === i && parseInt(j.month) === 5)
+              {
+                p=1;
+                s++;
+                r = parseInt(j.emp_id);
+              }
+            }
+              if(p === 0)
+              {
+            document.write("<td>");
+            document.write(i);
+            document.write("</td>");
+            
+              }
+              else if(s === 1)
+              {
+                for ( k = 0; k < m+1; k++) {
+                  if( parseInt(t[k]) === parseInt(r) )
+                  {
+                  break;
+                  }
+                }
+                if(k === 0)
+                {
+                document.write('<td bgcolor="green" >');
+                }
+                if(k === 1)
+                {
+                document.write('<td bgcolor="yellow" >');
+                }
+                if(k === 2)
+                {
+                document.write('<td bgcolor="blue" >');
+                }
+                
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+              else 
+              {
+                document.write('<td bgcolor="red" >');
+                  document.write(i);
+                  
+                  document.write("</td>");
+              }
+             if (i == 6 || i == 13 || i == 20 || i == 27 ){
+
+              document.write("<tr>");
+                document.write("</tr>");
+             }
+          }
+         
+          </script>
+      </table>
+    </div><div class="calendar">
+      <div class="month">June</div>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <!-- Add calendar cells here for February -->
+        <td></td><td></td><td></td><td></td>
+          <!-- Days of the month -->
+          <script>
+            // Access the data passed from FastAPI
+            
+            // Your JavaScript code to visualize the data
+            for (let i = 1; i < 31; i++) {
+              p=0;
+              s=0;
+              for (let j of c1 ) {
+                if(parseInt(j.day) === i && parseInt(j.month) === 6)
+                {
+                  p=1;
+                  s++;
+                  r = parseInt(j.emp_id);
+                }
+              }
+                if(p === 0)
+                {
+              document.write("<td>");
+              document.write(i);
+              document.write("</td>");
+              
+                }
+                else if(s === 1)
+                {
+                  for ( k = 0; k < m+1; k++) {
+                    if( parseInt(t[k]) === parseInt(r) )
+                    {
+                    break;
+                    }
+                  }
+                  if(k === 0)
+                  {
+                  document.write('<td bgcolor="green" >');
+                  }
+                  if(k === 1)
+                  {
+                  document.write('<td bgcolor="yellow" >');
+                  }
+                  if(k === 2)
+                  {
+                  document.write('<td bgcolor="blue" >');
+                  }
+                  
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+                else 
+                {
+                  document.write('<td bgcolor="red" >');
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+               if (i == 3 || i == 10 || i == 17 || i == 24 ){
+
+                document.write("<tr>");
+                  document.write("</tr>");
+               }
+            }
+           
+            </script>
+        </tr>
+      </table>
+    </div><div class="calendar">
+      <div class="month">July</div>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <!-- Add calendar cells here for February -->
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+          <!-- Days of the month -->
+          <script>
+            // Access the data passed from FastAPI
+            
+            // Your JavaScript code to visualize the data
+            for (let i = 1; i < 32; i++) {
+              p=0;
+              s=0;
+              for (let j of c1 ) {
+                if(parseInt(j.day) === i && parseInt(j.month) === 7)
+                {
+                  p=1;
+                  s++;
+                  r = parseInt(j.emp_id);
+                }
+              }
+                if(p === 0)
+                {
+              document.write("<td>");
+              document.write(i);
+              document.write("</td>");
+              
+                }
+                else if(s === 1)
+                {
+                  for ( k = 0; k < m+1; k++) {
+                    if( parseInt(t[k]) === parseInt(r) )
+                    {
+                    break;
+                    }
+                  }
+                  if(k === 0)
+                  {
+                  document.write('<td bgcolor="green" >');
+                  }
+                  if(k === 1)
+                  {
+                  document.write('<td bgcolor="yellow" >');
+                  }
+                  if(k === 2)
+                  {
+                  document.write('<td bgcolor="blue" >');
+                  }
+                  
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+                else 
+                {
+                  document.write('<td bgcolor="red" >');
+                    document.write(i);
+                    
+                    document.write("</td>");
+                }
+               if (i == 1 || i == 8 || i == 15 || i == 22 || i == 29 ){
+
+                document.write("<tr>");
+                  document.write("</tr>");
+               }
+            }
+           
+            </script>
+        </tr>
+      </table>
+    </div>
+
+<div class="calendar">
+  <div class="month">August</div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    <!-- Add calendar cells here for February -->
+    <td></td><td></td>
+      <!-- Days of the month -->
+      <script>
+        // Access the data passed from FastAPI
+        
+        // Your JavaScript code to visualize the data
+        for (let i = 1; i < 32; i++) {
+          p=0;
+          s=0;
+          for (let j of c1 ) {
+            if(parseInt(j.day) === i && parseInt(j.month) === 8)
+            {
+              p=1;
+              s++;
+              r = parseInt(j.emp_id);
+            }
+          }
+            if(p === 0)
+            {
+          document.write("<td>");
+          document.write(i);
+          document.write("</td>");
+          
+            }
+            else if(s === 1)
+            {
+              for ( k = 0; k < m+1; k++) {
+                if( parseInt(t[k]) === parseInt(r) )
+                {
+                break;
+                }
+              }
+              if(k === 0)
+              {
+              document.write('<td bgcolor="green" >');
+              }
+              if(k === 1)
+              {
+              document.write('<td bgcolor="yellow" >');
+              }
+              if(k === 2)
+              {
+              document.write('<td bgcolor="blue" >');
+              }
+              
+                document.write(i);
+                
+                document.write("</td>");
+            }
+            else 
+            {
+              document.write('<td bgcolor="red" >');
+                document.write(i);
+                
+                document.write("</td>");
+            }
+           if (i == 5 || i == 12 || i == 19 || i == 26 ){
+
+            document.write("<tr>");
+              document.write("</tr>");
+           }
+        }
+       
+        </script>
+    </tr>
+  </table>
+</div>
+<div class="calendar">
+  <div class="month">September</div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    <!-- Add calendar cells here for February -->
+    <td></td><td></td><td></td><td></td><td></td>
+      <!-- Days of the month -->
+      <script>
+        // Access the data passed from FastAPI
+        
+        // Your JavaScript code to visualize the data
+        for (let i = 1; i < 31; i++) {
+          p=0;
+          s=0;
+          for (let j of c1 ) {
+            if(parseInt(j.day) === i && parseInt(j.month) === 9)
+            {
+              p=1;
+              s++;
+              r = parseInt(j.emp_id);
+            }
+          }
+            if(p === 0)
+            {
+          document.write("<td>");
+          document.write(i);
+          document.write("</td>");
+          
+            }
+            else if(s === 1)
+            {
+              for ( k = 0; k < m+1; k++) {
+                if( parseInt(t[k]) === parseInt(r) )
+                {
+                break;
+                }
+              }
+              if(k === 0)
+              {
+              document.write('<td bgcolor="green" >');
+              }
+              if(k === 1)
+              {
+              document.write('<td bgcolor="yellow" >');
+              }
+              if(k === 2)
+              {
+              document.write('<td bgcolor="blue" >');
+              }
+              
+                document.write(i);
+                
+                document.write("</td>");
+            }
+            else 
+            {
+              document.write('<td bgcolor="red" >');
+                document.write(i);
+                
+                document.write("</td>");
+            }
+           if (i == 2 || i == 9 || i == 16 || i == 23 || i == 30 ){
+
+            document.write("<tr>");
+              document.write("</tr>");
+           }
+        }
+       
+        </script>
+    </tr>
+  </table>
+</div>
+<div class="calendar">
+  <div class="month">October</div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    <!-- Add calendar cells here for February -->
+    <tr>
+      <!-- Days of the month -->
+      <script>
+        // Access the data passed from FastAPI
+        
+        // Your JavaScript code to visualize the data
+        for (let i = 1; i < 32; i++) {
+          p=0;
+          s=0;
+          for (let j of c1 ) {
+            if(parseInt(j.day) === i && parseInt(j.month) === 10)
+            {
+              p=1;
+              s++;
+              r = parseInt(j.emp_id);
+            }
+          }
+            if(p === 0)
+            {
+          document.write("<td>");
+          document.write(i);
+          document.write("</td>");
+          
+            }
+            else if(s === 1)
+            {
+              for ( k = 0; k < m+1; k++) {
+                if( parseInt(t[k]) === parseInt(r) )
+                {
+                break;
+                }
+              }
+              if(k === 0)
+              {
+              document.write('<td bgcolor="green" >');
+              }
+              if(k === 1)
+              {
+              document.write('<td bgcolor="yellow" >');
+              }
+              if(k === 2)
+              {
+              document.write('<td bgcolor="blue" >');
+              }
+              
+                document.write(i);
+                
+                document.write("</td>");
+            }
+            else 
+            {
+              document.write('<td bgcolor="red" >');
+                document.write(i);
+                
+                document.write("</td>");
+            }
+           if (i % 7 == 0){
+
+            document.write("<tr>");
+              document.write("</tr>");
+           }
+        }
+       
+        </script>
+    </tr>
+  </table>
+</div>
+<div class="calendar">
+  <div class="month">November</div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    <!-- Add calendar cells here for February -->
+    <td></td><td></td><td></td>
+      <script>
+        // Access the data passed from FastAPI
+        
+        // Your JavaScript code to visualize the data
+        for (let i = 1; i < 31; i++) {
+          p=0;
+          s=0;
+          for (let j of c1 ) {
+            if(parseInt(j.day) === i && parseInt(j.month) === 11)
+            {
+              p=1;
+              s++;
+              r = parseInt(j.emp_id);
+            }
+          }
+            if(p === 0)
+            {
+          document.write("<td>");
+          document.write(i);
+          document.write("</td>");
+          
+            }
+            else if(s === 1)
+            {
+              for ( k = 0; k < m+1; k++) {
+                if( parseInt(t[k]) === parseInt(r) )
+                {
+                break;
+                }
+              }
+              if(k === 0)
+              {
+              document.write('<td bgcolor="green" >');
+              }
+              if(k === 1)
+              {
+              document.write('<td bgcolor="yellow" >');
+              }
+              if(k === 2)
+              {
+              document.write('<td bgcolor="blue" >');
+              }
+              
+                document.write(i);
+                
+                document.write("</td>");
+            }
+            else 
+            {
+              document.write('<td bgcolor="red" >');
+                document.write(i);
+                
+                document.write("</td>");
+            }
+           if (i == 4 || i == 11 || i == 18 || i == 25 ){
+
+            document.write("<tr>");
+              document.write("</tr>");
+           }
+        }
+       
+        </script>
+      <!-- Days of the month -->
+    </tr>
+  </table>
+</div><div class="calendar">
+  <div class="month">December</div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    <!-- Add calendar cells here for February -->
+    <td></td><td></td><td></td><td></td><td></td>
+      <!-- Days of the month -->
+      <script>
+        // Access the data passed from FastAPI
+        
+        // Your JavaScript code to visualize the data
+        for (let i = 1; i < 32; i++) {
+          p=0;
+          s=0;
+          for (let j of c1 ) {
+            if(parseInt(j.day) === i && parseInt(j.month) === 12)
+            {
+              p=1;
+              s++;
+              r = parseInt(j.emp_id);
+            }
+          }
+            if(p === 0)
+            {
+          document.write("<td>");
+          document.write(i);
+          document.write("</td>");
+          
+            }
+            else if(s === 1)
+            {
+              for ( k = 0; k < m+1; k++) {
+                if( parseInt(t[k]) === parseInt(r) )
+                {
+                break;
+                }
+              }
+              if(k === 0)
+              {
+              document.write('<td bgcolor="green" >');
+              }
+              if(k === 1)
+              {
+              document.write('<td bgcolor="yellow" >');
+              }
+              if(k === 2)
+              {
+              document.write('<td bgcolor="blue" >');
+              }
+              
+                document.write(i);
+                
+                document.write("</td>");
+            }
+            else 
+            {
+              document.write('<td bgcolor="red" >');
+                document.write(i);
+                
+                document.write("</td>");
+            }
+           if (i == 2 || i == 9 || i == 16 || i == 23 || i == 30 ){
+
+            document.write("<tr>");
+              document.write("</tr>");
+           }
+        }
+       
+        </script>
+    </tr>
+  </table>
+</div>
+</div>
+<div class="vertical-space"></div>
+<table class="table1">
+<tr><td>employe</td><td>color</td></tr><tr>
+<script>
+
+for ( k = 0; k < m; k++) {
+
+  if(k == 0)
+  {
+    
+      document.write('<td>');
+        document.write(t[k]);
+        document.write('</td>');
+        document.write('<td bgcolor="green" >');
+          document.write('</td>');
+  }
+  if(k == 1)
+  {
+    
+      document.write('<td>');
+        document.write(t[k]);
+        document.write('</td>');
+        document.write('<td bgcolor="yellow" >');
+          document.write('</td>');
+  }
+  if(k == 2)
+  {
+   
+      document.write('<td>');
+        document.write(t[k]);
+        document.write('</td>');
+        document.write('<td bgcolor="blue" >');
+          document.write('</td>');
+  }
+  document.write('</tr>');
+}
+
+
+
+
+
+</script>
+
+</table>
+  </div>
+</div>
+<div class="vertical-space"></div>
+
+</body>
+<style>
+.table1 {
+  width: 20%;
+  border-collapse: collapse;
+  border: 2px solid #333;
+  text-align:center;
+  margin: 0 auto;
+
+
+}
+
+.vertical-space {
+  margin-bottom: 150px;
+}
+</style>
+<div class="vertical-space"></div>
+</html>
+{% endif %}
+{% endblock content %}

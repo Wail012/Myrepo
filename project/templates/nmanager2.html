@@ -1,0 +1,77 @@
+{% extends './navadmin.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nommer manager</title>
+    
+    <style>
+        /* Custom CSS */
+        body {
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .manager-nomme {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+            .vertical-space {
+                margin-bottom: 150px;
+            }
+        
+    </style>
+</head>
+<body>
+    <div class="vertical-space"></div>
+    <h1>Choisir un employé pour être manager</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="m">Employé:</label>
+            <select class="form-control" name="m" id="m">
+                {% for i in g %}
+                    <option value="{{i.id}}">{{i.nom}} {{i.prenom}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Confirm</button>
+    </form>
+    
+    {% if x == 1 %}
+        <div class="manager-nomme">Manager nommé</div>
+    {% endif %}
+    <div class="vertical-space"></div>
+</body>
+</html>
+
+{% endblock content %}

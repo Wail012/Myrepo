@@ -1,0 +1,39 @@
+<!--bonjour manager
+<a href="/mconge">gestion conges<a>-->
+
+    {% extends './navmanager.html' %}
+{% block content %}
+
+<!--<a href="/rhconge">gestion des conges</a>-->
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            font-family: Arial;
+        }
+
+        .welcome-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        .welcome-message {
+            font-size: 52px;
+            
+            color: #333333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+    <div class="welcome-container">
+        <div class="welcome-message">
+            bonjour manager
+        </div>
+    </div>
+
+{% endblock content %}

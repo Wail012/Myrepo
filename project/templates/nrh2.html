@@ -1,0 +1,105 @@
+{% extends './navadmin.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nommer responsable rh</title>
+</head>
+<body>
+    <div class="vertical-space"></div>
+    <div class="container1">
+        <div class="content-box">
+    <h1>choisir employe</h1>
+    <form  method="post">
+        
+        
+        <select name="g">groupe:
+        {% for i in g %}
+    
+        <option value="{{i.id}}" >{{i.nom}} {{i.prenom}}</option>
+        {% endfor %}
+        </select>
+     
+
+       
+        <button type="submit">confirm</button>
+    </form>
+    {% if x == 1%}
+    <p class="message">responsable rh nomme</p>
+    {% endif %}
+</div>
+</div>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+       
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .container1 {
+        background-color: #e6e6e6;
+        
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 40%;
+        margin: 0 auto;
+    }
+    .message {
+        color: green;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    form {
+        width: 300px; /* Adjust the width as needed */
+        margin: 0 auto;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .message {
+        color: green;
+        margin-top: 10px;
+        text-align: center;
+    }
+.vertical-space {
+    margin-bottom: 150px;
+}
+</style>
+<div class="vertical-space"></div>
+{% endblock content %}

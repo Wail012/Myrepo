@@ -1,0 +1,109 @@
+
+{% extends './navrh.html' %}
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .vertical-space {
+        margin-bottom: 150px;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    
+    /* Additional CSS styles and effects */
+    body {
+        margin: 20px;
+        background-color: #f1f1f1;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    .btn {
+        padding: 10px 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 4px;
+    }
+    .btn:hover {
+        background-color: #45a049;
+    }
+    .form-title {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    </style>
+    <div class="vertical-space"></div>
+
+    
+    <div class="container1">
+        <h1>gestion des jours ouvrables</h1>
+
+        <div class="vertical-space"></div>
+
+        
+        <div class="alert alert-success">
+            
+            <form method="post">
+                <div class="form-group">
+                    <label for="type1">choisir type de conge</label>
+                    <input type="text" name="type1">
+                </div>
+                <div class="form-group">
+                    <label for="dated1">Date:</label>
+                    <input type="date" class="form-control" name="dated1" id="dated1">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+                {% if x == 1 %}
+                <div  style="display: none; color: black;">jour ouvrable ajoute avec succès!</div>
+                jour ouvrable ajoute avec succès!
+                {% endif %}
+            </form>
+        </div>
+    </div>
+        <div class="vertical-space"></div>
+    <table>
+        <tr>
+            
+            <td>date</td>
+            <td></td>
+        </tr>
+        {% for i in e %}
+        <td>{{i.day}}/{{i.month}}/2023</td>
+           
+            
+            <td><a href="/supphday/{{i.id}}">supprimer</td>
+           
+    </tr>
+    {% endfor %}
+    </table>
+    <div class="vertical-space"></div>
+        
+    
+    
+{% endblock content %}
